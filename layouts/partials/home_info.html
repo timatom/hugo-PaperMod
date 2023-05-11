@@ -3,8 +3,13 @@
     <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
-    <div class="entry-content">
-        {{ .Content | markdownify }}
+    <div class="entry-content" style="display: flex; align-items: center;">
+        <div class="image-container">
+            <img src="{{ .Image | absURL }}" class="my-image">
+        </div>
+        <div class="text-container" style="padding-left: 20px;">
+            {{ .Content | markdownify }}
+        </div>
     </div>
     <footer class="entry-footer">
         {{ partial "social_icons.html" site.Params.socialIcons }}
