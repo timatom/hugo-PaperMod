@@ -3,6 +3,7 @@
     <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
+
     <div class="entry-content" style="display: flex; align-items: center;">
         <div class="image-container">
             <img src="{{ .Image | absURL }}" class="my-image">
@@ -11,8 +12,27 @@
             {{ .Content | markdownify }}
         </div>
     </div>
-    <footer class="entry-footer">
+
+    <!-- <hr> -->
+
+    <!-- <div class="thin-line"></div> -->
+
+    <!-- <footer class="entry-footer">
         {{ partial "social_icons.html" site.Params.socialIcons }}
-    </footer>
+    </footer> -->
+
+    <!-- Subscription text-->
+    <div class="entry-content" style = "text-align: center; margin-bottom: 10px; margin-top: 10px;">
+        {{ .SubscriptionText | markdownify }}
+    </div>
+    
+    <!-- Subscription form-->
+    <script src="https://forms.feedblitz.com/js/h2e"></script>
+
+      
+      
+      
+      
+      
 </article>
 {{- end -}}
