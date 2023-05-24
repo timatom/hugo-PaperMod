@@ -96,7 +96,7 @@
         .F22118_sb_fbz_input {
             padding: 0.5em;
             line-height: 1.7em;
-            background-color: #ffffff !important;
+            background-color: transparent;
             border: 1px solid #aaaaaa;
             border-radius: 15px;
             -moz-border-radius: 15px;
@@ -174,6 +174,11 @@
         .F22118_sb_fbz_row_nohover:hover {
             background: transparent;
         }
+
+        .dark .F22118_sb_fbz_input {
+            color: #ffffff !important;
+        }
+
 
         /* .F22118_sb_fbz_form {border:none;border-radius:20px;-moz-border-radius:20px;overflow:hidden;padding:0;line-height:1.3em;font-size:16px;}
         .F22118_sb_fbz_form div {font-size:16px;line-height:1.3em;}
@@ -288,6 +293,49 @@
         }
         var F22118_sb_wait = setInterval(F22118_sb_wait_fn, 100);
     </script>
+
+    <script>
+        // This code should be executed once the page has loaded
+        document.addEventListener('DOMContentLoaded', (event) => {
+        // Check for the saved theme in local storage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            // If the saved theme is 'dark', add the .dark class to the root element
+            if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            // Set the text color of the input element in dark mode
+            const emailInput = document.querySelector('.F22118_sb_fbz_input');
+            if (emailInput) {
+                emailInput.style.color = '#ffffff';
+            }
+            }
+        }
+    
+        // This function should be called when the user toggles dark mode
+        const switchTheme = () => {
+            const root = document.documentElement;
+            const emailInput = document.querySelector('.F22118_sb_fbz_input');
+            if (root.classList.contains('dark')) {
+            root.classList.remove('dark');
+            if (emailInput) {
+                emailInput.style.color = '#cccccc';
+            }
+            localStorage.setItem('theme', 'light');
+            } else {
+            root.classList.add('dark');
+            if (emailInput) {
+                emailInput.style.color = '#ffffff';
+            }
+            localStorage.setItem('theme', 'dark');
+            }
+        };
+    
+        // Add event listener to the theme switcher button
+        document.getElementById('theme-switcher').addEventListener('click', switchTheme);
+        });
+    </script>
+    
     <div id="F22118_sb_wait_img"
         style="width:0;height:0;overflow:hidden;line-height:0;display:inline-block;position:fixed;"></div>
 
