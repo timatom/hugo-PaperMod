@@ -41,6 +41,13 @@
     border-radius: var(--radius);
     transition: transform 0.1s;
     border: 1px solid var(--border);
+    /* Added code */
+    transition: transform 0.1s, box-shadow 0.3s;
+
+}
+
+.post-entry:hover {
+    box-shadow: var(--entry-hover-shadow);
 }
 
 .post-entry:active {
