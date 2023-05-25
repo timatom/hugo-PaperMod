@@ -97,11 +97,12 @@
             padding: 0.5em;
             line-height: 1.7em;
             background-color: transparent;
-            border: 1px solid #aaaaaa;
+            border: 1px solid rgba(155,156,157);
             border-radius: 15px;
             -moz-border-radius: 15px;
             font-size: 16px;
             margin-right: 2px;
+        
         }
 
         .F22118_sb_fbz_input_container {
@@ -111,12 +112,15 @@
             padding-bottom: 0;
             margin-right: 4px;
             background-color: inherit !important;
+     
         }
 
         .F22118_sb_fbz_input {
             height: inherit;
             box-sizing: border-box;
             padding-right: 20px !important;
+            border-right: none;
+
         }
 
         .F22118_sb_fbz_input[type="color"] {
@@ -128,7 +132,7 @@
             padding: 0.5em;
             line-height: 1.7em;
             background: #9b9c9d;
-            background-color: #9b9c9d !important;
+            background-color:rgba(155,156,157,0.5);
             border: 1px solid #9b9c9d;
             border-radius: 15px;
             -moz-border-radius: 15px;
@@ -137,6 +141,12 @@
             text-align: center;
             margin: 0;
             cursor: pointer;
+            border-left: none;
+        }
+
+        .dark .F22118_sb_fbz_button[type="button"],
+        .dark .F22118_sb_fbz_button {
+            color: #fff;
         }
 
         .F22118_sb_fbz_button[type="button"]:hover,
@@ -236,7 +246,7 @@
                                             onclick="try{fbzClearChangedBorders();}catch(e){};req=fbz_v('F22118_sb',F22118_sb_requiredFields);val=fbz_v('F22118_sb',F22118_sb_validateFields,1);if(req && val){smartFormSubmit(this);};"
                                             name="fbzsubscribe" id="F22118_sb_subscribe" value="Subscribe"
                                             alt="Subscribe" title="Subscribe" width="100%"
-                                            style="border-top-left-radius:0;border-bottom-left-radius:0;font-size:100%;height:inherit;background-color:#9b9c9d;white-space:normal;width:100%;margin-left:0;margin-right:0;padding-left:0;padding-right:0;"><img
+                                            style="border-top-left-radius:0;border-bottom-left-radius:0;font-size:100%;height:inherit;white-space:normal;width:100%;margin-left:0;margin-right:0;padding-left:0;padding-right:0;"><img
                                             id="F22118_sb_fbz_wait" alt="Please wait..."
                                             style="display:none;width:48px;opacity:0.5;"
                                             src="https://assets.feedblitz.com/images/spinner.gif" loading="lazy">
