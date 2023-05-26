@@ -1,9 +1,11 @@
 {{- with site.Params.homeInfoParams }}
 <article class="first-entry home-info">
+    <!-- Title -->
     <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
 
+    <!-- Image and text -->
     <div class="entry-content" style="display: flex; align-items: center;">
         <div class="image-container">
             <img src="{{ .Image | absURL }}" class="my-image">
