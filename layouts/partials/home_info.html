@@ -98,8 +98,8 @@
         .F22118_sb_fbz_input {
             padding: 0.5em;
             line-height: 1.7em;
-            background-color: #ffffff !important;
-            border: 1px solid #aaaaaa;
+            background-color: transparent;
+            border: 1px solid rgba(155,156,157);
             border-radius: 15px;
             -moz-border-radius: 15px;
             font-size: 16px;
@@ -119,6 +119,7 @@
             height: inherit;
             box-sizing: border-box;
             padding-right: 20px !important;
+            border-right: none;
         }
 
         .F22118_sb_fbz_input[type="color"] {
@@ -130,7 +131,7 @@
             padding: 0.5em;
             line-height: 1.7em;
             background: #9b9c9d;
-            background-color: #9b9c9d !important;
+            background-color:rgba(155,156,157,0.5);
             border: 1px solid #9b9c9d;
             border-radius: 15px;
             -moz-border-radius: 15px;
@@ -139,13 +140,19 @@
             text-align: center;
             margin: 0;
             cursor: pointer;
+            border-left: none;
         }
 
-        .F22118_sb_fbz_button[type="button"]:hover,
+        .dark .F22118_sb_fbz_button[type="button"],
+        .dark .F22118_sb_fbz_button {
+            color: #fff;
+        }
+
+        /* .F22118_sb_fbz_button[type="button"]:hover,
         .F22118_sb_fbz_button:hover {
             background: #ffffff !important;
             transition: background-color 0.5s ease;
-        }
+        } */
 
         .F22118_sb_fbz_button[type="button"]:active,
         .F22118_sb_fbz_button:active {
@@ -176,6 +183,11 @@
         .F22118_sb_fbz_row_nohover:hover {
             background: transparent;
         }
+
+        .dark .F22118_sb_fbz_input {
+            color: #ffffff !important;
+        }
+
 
         /* .F22118_sb_fbz_form {border:none;border-radius:20px;-moz-border-radius:20px;overflow:hidden;padding:0;line-height:1.3em;font-size:16px;}
         .F22118_sb_fbz_form div {font-size:16px;line-height:1.3em;}
@@ -233,7 +245,7 @@
                                             onclick="try{fbzClearChangedBorders();}catch(e){};req=fbz_v('F22118_sb',F22118_sb_requiredFields);val=fbz_v('F22118_sb',F22118_sb_validateFields,1);if(req && val){smartFormSubmit(this);};"
                                             name="fbzsubscribe" id="F22118_sb_subscribe" value="Subscribe"
                                             alt="Subscribe" title="Subscribe" width="100%"
-                                            style="border-top-left-radius:0;border-bottom-left-radius:0;font-size:100%;height:inherit;background-color:#9b9c9d;white-space:normal;width:100%;margin-left:0;margin-right:0;padding-left:0;padding-right:0;"><img
+                                            style="border-top-left-radius:0;border-bottom-left-radius:0;font-size:100%;height:inherit;white-space:normal;width:100%;margin-left:0;margin-right:0;padding-left:0;padding-right:0;"><img
                                             id="F22118_sb_fbz_wait" alt="Please wait..."
                                             style="display:none;width:48px;opacity:0.5;"
                                             src="https://assets.feedblitz.com/images/spinner.gif" loading="lazy">
@@ -290,6 +302,49 @@
         }
         var F22118_sb_wait = setInterval(F22118_sb_wait_fn, 100);
     </script>
+
+    <script>
+        // This code should be executed once the page has loaded
+        document.addEventListener('DOMContentLoaded', (event) => {
+        // Check for the saved theme in local storage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            // If the saved theme is 'dark', add the .dark class to the root element
+            if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            // Set the text color of the input element in dark mode
+            const emailInput = document.querySelector('.F22118_sb_fbz_input');
+            if (emailInput) {
+                emailInput.style.color = '#ffffff';
+            }
+            }
+        }
+    
+        // This function should be called when the user toggles dark mode
+        const switchTheme = () => {
+            const root = document.documentElement;
+            const emailInput = document.querySelector('.F22118_sb_fbz_input');
+            if (root.classList.contains('dark')) {
+            root.classList.remove('dark');
+            if (emailInput) {
+                emailInput.style.color = '#cccccc';
+            }
+            localStorage.setItem('theme', 'light');
+            } else {
+            root.classList.add('dark');
+            if (emailInput) {
+                emailInput.style.color = '#ffffff';
+            }
+            localStorage.setItem('theme', 'dark');
+            }
+        };
+    
+        // Add event listener to the theme switcher button
+        document.getElementById('theme-switcher').addEventListener('click', switchTheme);
+        });
+    </script>
+    
     <div id="F22118_sb_wait_img"
         style="width:0;height:0;overflow:hidden;line-height:0;display:inline-block;position:fixed;"></div>
 
