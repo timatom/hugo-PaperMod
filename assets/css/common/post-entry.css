@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     min-height: 320px;
-    margin: var(--gap) 0 calc(var(--gap) * 2) 0;
+    /* margin: var(--gap) 0 calc(var(--gap) * 2) 0; */
 }
 
 .first-entry .entry-header {
@@ -20,7 +20,7 @@
 }
 
 .first-entry .entry-content {
-    margin: 14px 0;
+    /* margin: 14px 0; */
     font-size: 16px;
     -webkit-line-clamp: 3;
 }
@@ -31,6 +31,11 @@
 
 .home-info .entry-content {
     -webkit-line-clamp: unset;
+    /* Create a border only for the top and bottom with opacity and 1.5px thickness */
+    border-top: 1.5px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
+    padding: 16px 0;
+    /* margin: 16px 0; */
 }
 
 .post-entry {
@@ -108,4 +113,14 @@
 .entry-cover a {
     color: var(--secondary);
     box-shadow: 0 1px 0 var(--primary);
+}
+
+.image-container {
+    /* Create vertical line beside image to the right . */
+    border-right: 1.5px solid rgba(0, 0, 0, 0.2);
+}
+
+/* I would like the text container to have a margin between the border and the text. */
+.text-container {
+    margin-left: 10px;
 }

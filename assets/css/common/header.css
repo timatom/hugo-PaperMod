@@ -2,10 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    max-width: calc(var(--main-width) + var(--gap) * 2);
     margin-inline-start: auto;
     margin-inline-end: auto;
     line-height: var(--header-height);
+    /* Add a border bottom with opacity of 20% */
+    /* border-bottom: 1.5px solid rgba(0, 0, 0, 0.2); */
+    
 }
 
 .nav a {
@@ -15,7 +18,7 @@
 .logo,
 #menu {
     display: flex;
-    margin: auto var(--gap);
+    /* margin: auto var(--gap); */
 }
 
 .logo {
@@ -67,7 +70,7 @@ body:not(.dark) #sun {
 
 #menu .active {
     font-weight: 500;
-    border-bottom: 2px solid currentColor;
+    border-bottom: 10px solid var(--border);
 }
 
 .lang-switch li,

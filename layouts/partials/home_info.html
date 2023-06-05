@@ -1,8 +1,8 @@
 {{- with site.Params.homeInfoParams }}
 <article class="first-entry home-info">
-    <header class="entry-header">
+    <!-- <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
-    </header>
+    </header> -->
 
     <div class="entry-content" style="display: flex; align-items: center;">
         <div class="image-container">
@@ -14,7 +14,7 @@
     </div>
 
     <!-- Subscription text-->
-    <div class="entry-content" style="text-align: center; margin-bottom: 10px; margin-top: 10px;">
+    <div class="entry-content-subscribe" style="text-align: center; margin-bottom: 10px; margin-top: 10px;">
         {{ .SubscriptionText | markdownify }}
     </div>
 
@@ -98,8 +98,8 @@
             line-height: 1.7em;
             background-color: transparent;
             border: 1px solid rgba(155,156,157);
-            border-radius: 15px;
-            -moz-border-radius: 15px;
+            /* border-radius: 15px; */
+            /* -moz-border-radius: 15px; */
             font-size: 16px;
             margin-right: 2px;
         }
@@ -131,8 +131,8 @@
             background: #9b9c9d;
             background-color:rgba(155,156,157,0.5);
             border: 1px solid #9b9c9d;
-            border-radius: 15px;
-            -moz-border-radius: 15px;
+            /* border-radius: 15px;
+            -moz-border-radius: 15px; */
             font-size: 16px;
             padding: 0.5em !important;
             text-align: center;
@@ -221,7 +221,7 @@
                 <tr>
                     <td class="F22118_sb_fbz_form">
                         <table cellpadding="6" cellspacing="0" width="100%" class="F22118_sb_fbz_table"
-                            style="border: 0;border-radius:16px; margin-left: auto; margin-right: auto;">
+                            style="border: 0; margin-left: auto; margin-right: auto;">
                             <tr></tr>
                             <div class="F22118_sb_fbz_row">
                                 <td class="F22118_sb_fbz_label" style="padding-top:0.7em;padding:0"></td>
