@@ -21,11 +21,20 @@
 
 .first-entry .entry-content {
     /* margin: 14px 0; */
-    font-size: 16px;
+    /* font-size: 16px; */
+    /* font-size: 14px; */
     -webkit-line-clamp: 3;
 }
 
+/* .entry-content-subscribe {
+    font-size: 14px;
+} */
+
 .first-entry .entry-footer {
+    font-size: 14px;
+}
+
+.first-entry.home-info {
     font-size: 14px;
 }
 
