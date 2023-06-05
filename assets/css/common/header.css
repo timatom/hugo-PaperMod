@@ -94,3 +94,8 @@ body:not(.dark) #sun {
 .logo-switches {
     flex-wrap: inherit;
 }
+
+.search-icon {
+    vertical-align: middle;
+    margin-top: 2px;
+}
