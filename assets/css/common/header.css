@@ -8,7 +8,7 @@
     line-height: var(--header-height);
     /* Add a border bottom with opacity of 20% */
     /* border-bottom: 1.5px solid rgba(0, 0, 0, 0.2); */
-    
+    margin-top: 16px;    
 }
 
 .nav a {
