@@ -4,7 +4,7 @@
 {{- partial "index_profile.html" . }}
 {{- else }} {{/* if not profileMode */}}
 
-{{- if not .IsHome | and .Title }}
+{{- if not .IsHome }} <!-- Corrected if condition -->
 <header class="page-header">
   {{- partial "breadcrumbs.html" . }}
   <h1>
@@ -33,7 +33,7 @@
 {{- if .Content }}
 <div class="post-content">
   {{- if not (.Param "disableAnchoredHeadings") }}
-  {{- partial "anchored_headings.html" .Content -}}
+  {{- partial "anchored_headings.html" .Content }}
   {{- else }}{{ .Content }}{{ end }}
 </div>
 {{- end }}
@@ -46,35 +46,64 @@
 {{- if .IsHome }}
 {{- $pages := where site.RegularPages "Type" "origins" }}
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
-<header>
-  <h1 style="margin-bottom: 15px;">Choose a path</h2>
-  <p style="margin-bottom: 40px;">Explore the following comprehensive articles. If this is your first time, <a href="" style="font-weight: bold;">start here</a>.</p>
-</header>
-{{- range $pages }}
-  <!-- Insert your HTML to display each page -->
-  <article class="guide-entry">
-    {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-    {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-    <header class="entry-header">
-      <h2>
-        {{- .Title }}
-        {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-      </h2>
-    </header>
-    {{- if (ne (.Param "hideSummary") true) }}
-    <div class="entry-content">
-      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-    </div>
-    {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <footer class="entry-footer">
-      {{- partial "post_meta.html" . -}}
-    </footer>
-    {{- end }}
-    <a class="entry-link guide" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-  </article>
+
+<div class="guides-grid"> <!-- Start of .guides-grid div -->
+  <header class="guide-header">
+    <h1>Interested in my blog? Explore these guides. </h1> <!-- Fixed closing tag -->
+    <p>If you're new, <a href="" style="font-weight: bold;">start here</a>.</p>
+  </header>
+  {{- range $index, $page := $pages }}
+    <!-- Insert your HTML to display each page -->
+    <article class="{{ if eq (mod $index 2) 0 }}guide-entry left{{ else }}guide-entry right{{ end }}">
+      {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
+      {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+      <header class="entry-header">
+        <h2>
+          {{- .Title }}
+          {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+        </h2>
+      </header>
+      {{- if not (.Param "hideSummary") }} <!-- Removed 'true' argument -->
+      <div class="entry-content">
+        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+      </div>
+      {{- end }}
+      {{- if not (.Param "hideMeta") }}
+      <footer class="entry-footer">
+        {{- partial "post_meta.html" . -}}
+      </footer>
+      {{- end }}
+      <a class="entry-link guide" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+    </article>
+  {{- end }}
+  <!-- Add a spacer div only for left side entries -->
+  <div class="spacer"></div>
+</div> <!-- End of .guides-grid div -->
+
 {{- end }}
-{{- end }}
+
+<!-- <article class="guide-entry">
+  {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
+  {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
+  <header class="entry-header">
+    <h2>
+      {{- .Title }}
+      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+    </h2>
+  </header>
+  {{- if not (.Param "hideSummary") }}
+  <div class="entry-content">
+    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+  </div>
+  {{- end }}
+  {{- if not (.Param "hideMeta") }}
+  <footer class="entry-footer">
+    {{- partial "post_meta.html" . -}}
+  </footer>
+  {{- end }}
+  <a class="entry-link guide" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article> -->
+
 
 <!-- Latest posts -->
 {{- if .IsHome }}
@@ -96,7 +125,7 @@
         {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
       </h2>
     </header>
-    {{- if (ne (.Param "hideSummary") true) }}
+    {{- if not (.Param "hideSummary") }}
     <div class="entry-content">
       <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
     </div>
