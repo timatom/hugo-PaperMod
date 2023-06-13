@@ -106,17 +106,17 @@
 
 
 <!-- Latest posts -->
-{{- if .IsHome }}
+<!-- {{- if .IsHome }}
 {{- $pages := where site.RegularPages "Type" "posts" }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }} -->
 <!-- Note: ($pages.Reverse) 5 overrides the global settings defined within the config.yml -->
-{{- $paginator := .Paginate ($pages.Reverse) 5 }}
+<!-- {{- $paginator := .Paginate ($pages.Reverse) 5 }}
 <header style="margin-top: 100px;">
   <h1 style="margin-bottom: 30px;">Latest posts</h1>
 </header>
-{{- range $paginator.Pages }}
+{{- range $paginator.Pages }} -->
   <!-- Insert your HTML to display each page -->
-  <article class="post-entry">
+  <!-- <article class="post-entry">
     {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
     {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
     <header class="entry-header">
@@ -161,7 +161,30 @@
   </nav>
 </footer>
 {{- end }}
-{{- end }}
+{{- end }} -->
+
+<!-- Starter articles and categories section. -->
+<div class="starter-container">
+  <div class="column">
+    <h2>Start with these articles</h2>
+    <ul>
+      {{ range .Site.Params.starterArticles }}
+      <li><a href="{{ .url }}">{{ .title }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+  <div class="column">
+    <h2>Explore by category</h2>
+    <!-- Add your categories and links here -->
+    <ul>
+      {{ range .Site.Params.starterCategories }}
+        <li><a href="{{ .url }}">{{ .title }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+</div>
+  
+
 
 {{- end }}{{/* end profileMode */}}
 
