@@ -34,15 +34,17 @@
     font-size: 14px;
 }
 
-.first-entry.home-info {
+/* .first-entry.home-info {
     font-size: 14px;
-}
+} */
 
 .home-info .entry-content {
     -webkit-line-clamp: unset;
     /* Create a border only for the top and bottom with opacity and 1.5px thickness */
-    border-top: 1.5px solid rgba(0, 0, 0, 0.2);
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
+    /* border-top: 1.5px solid rgba(0, 0, 0, 0.2); */
+    /* border-bottom: 1.5px solid rgba(0, 0, 0, 0.2); */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
     padding: 16px 0;
     /* margin: 16px 0; */
 }
@@ -80,8 +82,7 @@
     background: var(--entry);
     border-radius: var(--radius);
     transition: transform 0.1s;
-    border: 1px solid var(--border);
-    /* Added code */
+    border: 1px solid rgba(0, 0, 0, 0.1);
     transition: transform 0.1s, box-shadow 0.3s;
     flex: 0 0 48%;
     display: inline-block;
@@ -114,8 +115,13 @@
     margin-bottom: 30px !important;
 }
 
-.guide-header p {
+/* .guide-header p {
     font-size: 16px;
+
+} */
+
+.guide-header a:hover {
+    text-decoration: underline;
 }
 
 /* .spacer {
@@ -143,7 +149,7 @@
 .entry-content {
     margin: 8px 0;
     color: var(--secondary);
-    font-size: 14px;
+    /* font-size: 14px; */
     line-height: 1.6;
     overflow: hidden;
     display: -webkit-box;
@@ -169,6 +175,10 @@
     height: 100%;
 } */
 
+.entry-link.guide:hover {
+    background-color: #0389F4;
+    opacity: 10%;
+}
 
 .entry-cover,
 .entry-isdraft {
@@ -195,7 +205,8 @@
 
 .image-container {
     /* Create vertical line beside image to the right . */
-    border-right: 1.5px solid rgba(0, 0, 0, 0.2);
+    /* border-right: 1.5px solid rgba(0, 0, 0, 0.2); */
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 /* I would like the text container to have a margin between the border and the text. */

@@ -50,7 +50,7 @@
 <div class="guides-grid"> <!-- Start of .guides-grid div -->
   <header class="guide-header">
     <h1>Interested in my blog? Explore these guides. </h1> <!-- Fixed closing tag -->
-    <p>If you're new, <a href="" style="font-weight: bold;">start here</a>.</p>
+    <p>If you're new, <a href="">start here</a>.</p>
   </header>
   {{- range $index, $page := $pages }}
     <!-- Insert your HTML to display each page -->
@@ -169,7 +169,11 @@
     <h2>Start with these articles</h2>
     <ul>
       {{ range .Site.Params.starterArticles }}
-      <li><a href="{{ .url }}">{{ .title }}</a></li>
+      <li>
+        <p>
+           <a href="{{ .url }}">{{ .title }}</a>
+        </p>
+      </li>
       {{ end }}
     </ul>
   </div>
@@ -178,13 +182,15 @@
     <!-- Add your categories and links here -->
     <ul>
       {{ range .Site.Params.starterCategories }}
-        <li><a href="{{ .url }}">{{ .title }}</a></li>
+        <li>
+          <p>
+            <a href="{{ .url }}">{{ .title }}</a>
+          </p>
+        </li>
       {{ end }}
     </ul>
   </div>
 </div>
-  
-
 
 {{- end }}{{/* end profileMode */}}
 
