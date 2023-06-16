@@ -227,4 +227,15 @@
     .guide-header {
         width: 100%;
     }
+
+    /* .starter-container columns should take up 100% of the width and be on top of eachother */
+    .starter-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .starter-container h2 {
+        margin-top: 30px;
+    }
 }
