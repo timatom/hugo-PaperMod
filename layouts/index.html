@@ -47,150 +47,18 @@
 {{- $pages := where site.RegularPages "Type" "origins" }}
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
 
-<div class="guides-grid"> <!-- Start of .guides-grid div -->
-  <header class="guide-header">
-    <h1>Interested in my blog? Explore these guides. </h1> <!-- Fixed closing tag -->
-    <p>If you're new, <a href="">start here</a>.</p>
-  </header>
-  {{- range $index, $page := $pages }}
-    <!-- Insert your HTML to display each page -->
-    <article class="{{ if eq (mod $index 2) 0 }}guide-entry left{{ else }}guide-entry right{{ end }}">
-      {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-      {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-      <header class="entry-header">
-        <h2>
-          {{- .Title }}
-          {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-        </h2>
-      </header>
-      {{- if not (.Param "hideSummary") }} <!-- Removed 'true' argument -->
-      <div class="entry-content">
-        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-      </div>
-      {{- end }}
-      {{- if not (.Param "hideMeta") }}
-      <footer class="entry-footer">
-        {{- partial "post_meta.html" . -}}
-      </footer>
-      {{- end }}
-      <a class="entry-link guide" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-    </article>
-  {{- end }}
-  <!-- Add a spacer div only for left side entries -->
-  <!-- <div class="spacer"></div> -->
-</div> <!-- End of .guides-grid div -->
+<!-- Reference guides-grid here. -->
+{{ partial "guides_grid.html" (dict "pages" $pages "context" .) }}
 
 {{- end }}
 
-<!-- <article class="guide-entry">
-  {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-  {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-  <header class="entry-header">
-    <h2>
-      {{- .Title }}
-      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-    </h2>
-  </header>
-  {{- if not (.Param "hideSummary") }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-  </div>
-  {{- end }}
-  {{- if not (.Param "hideMeta") }}
-  <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
-  </footer>
-  {{- end }}
-  <a class="entry-link guide" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article> -->
-
-
-<!-- Latest posts -->
-<!-- {{- if .IsHome }}
-{{- $pages := where site.RegularPages "Type" "posts" }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }} -->
-<!-- Note: ($pages.Reverse) 5 overrides the global settings defined within the config.yml -->
-<!-- {{- $paginator := .Paginate ($pages.Reverse) 5 }}
-<header style="margin-top: 100px;">
-  <h1 style="margin-bottom: 30px;">Latest posts</h1>
-</header>
-{{- range $paginator.Pages }} -->
-  <!-- Insert your HTML to display each page -->
-  <!-- <article class="post-entry">
-    {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-    {{- partial "cover.html" (dict "cxt" . "IsHome" true "isHidden" $isHidden) }}
-    <header class="entry-header">
-      <h2>
-        {{- .Title }}
-        {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-      </h2>
-    </header>
-    {{- if not (.Param "hideSummary") }}
-    <div class="entry-content">
-      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-    </div>
-    {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <footer class="entry-footer">
-      {{- partial "post_meta.html" . -}}
-    </footer>
-    {{- end }}
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-  </article>
-{{- end }}
-
-{{- if gt $paginator.TotalPages 1 }}
-<footer class="page-footer">
-  <nav class="pagination">
-    {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
-      «&nbsp;{{ i18n "prev_page" }}&nbsp;
-      {{- if (.Param "ShowPageNums") }}
-      {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
-      {{- end }}
-    </a>
-    {{- end }}
-    {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL | absURL }}">
-      {{- i18n "next_page" }}&nbsp;
-      {{- if (.Param "ShowPageNums") }}
-      {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
-      {{- end }}&nbsp;»
-    </a>
-    {{- end }}
-  </nav>
-</footer>
-{{- end }}
-{{- end }} -->
 
 <!-- Starter articles and categories section. -->
-<div class="starter-container">
-  <div class="column">
-    <h2>Start with these articles</h2>
-    <ul>
-      {{ range .Site.Params.starterArticles }}
-      <li>
-        <p>
-           <a href="{{ .url }}">{{ .title }}</a>
-        </p>
-      </li>
-      {{ end }}
-    </ul>
-  </div>
-  <div class="column">
-    <h2>Explore by category</h2>
-    <!-- Add your categories and links here -->
-    <ul>
-      {{ range .Site.Params.starterCategories }}
-        <li>
-          <p>
-            <a href="{{ .url }}">{{ .title }}</a>
-          </p>
-        </li>
-      {{ end }}
-    </ul>
-  </div>
-</div>
+{{ partial "starter_section.html" . }}
+
+<!-- Bottom div -->
+{{ partial "bottom_section.html" . }}
+
 
 {{- end }}{{/* end profileMode */}}
 

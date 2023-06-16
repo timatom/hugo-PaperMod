@@ -1,0 +1,28 @@
+<!-- Starter articles and categories section. -->
+<div class="starter-container">
+    <div class="column">
+      <h2>Start with these articles</h2>
+      <ul>
+        {{ range .Site.Params.starterArticles }}
+        <li>
+          <p>
+             <a href="{{ .url }}">{{ .title }}</a>
+          </p>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    <div class="column">
+      <h2>Explore by category</h2>
+      <!-- Add your categories and links here -->
+      <ul>
+        {{ range .Site.Params.starterCategories }}
+          <li>
+            <p>
+              <a href="{{ .url }}">{{ .title }}</a>
+            </p>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
