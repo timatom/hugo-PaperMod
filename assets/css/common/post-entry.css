@@ -204,27 +204,10 @@
     box-shadow: 0 1px 0 var(--primary);
 }
 
-.image-container {
-    /* Create vertical line beside image to the right . */
-    /* border-right: 1.5px solid rgba(0, 0, 0, 0.2); */
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-/* I would like the text container to have a margin between the border and the text. */
 .text-container {
-    margin-left: 10px;
+    /* margin-left: 10px; */
+    padding-left: 10px;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 
-/* Add a media query for mobile devices */
-@media only screen and (max-width: 600px) {
-    .guide-entry, .post-entry {
-        flex: 0 0 100%; /* 0 for top and bottom, 100% for left and right */
-        padding-left: var(--content-gap);
-        padding-right: var(--content-gap);
-    }
-
-    .guide-header {
-        width: 100%;
-    }
-}

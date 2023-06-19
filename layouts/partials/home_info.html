@@ -4,17 +4,17 @@
         <h1>{{ .Title | markdownify }}</h1>
     </header> -->
 
-    <div class="entry-content" style="display: flex; align-items: center;">
+    <div class="entry-content">
         <div class="image-container">
             <img src="{{ .Image | absURL }}" class="my-image">
         </div>
-        <div class="text-container" style="padding-left: 0;">
+        <div class="text-container">
             <p>{{ .Content | markdownify }}</p>
         </div>
     </div>
 
     <!-- Subscription text-->
-    <div class="entry-content-subscribe" style="text-align: center; margin-bottom: 10px; margin-top: 30px;">
+    <div class="entry-content-subscribe">
         <p>        
             {{ .SubscriptionText | markdownify }}
         </p>
