@@ -6,17 +6,9 @@
     margin-inline-start: auto;
     margin-inline-end: auto;
     line-height: var(--header-height);
-    /* Add a border bottom with opacity of 20% */
-    /* border-bottom: 1.5px solid rgba(0, 0, 0, 0.2); */
     margin-top: 16px;    
 }
 
-@media (max-width: 900px) {
-    .nav {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-}
 
 .nav a {
     display: block;
@@ -67,9 +59,9 @@ body:not(.dark) #sun {
     white-space: nowrap;
 }
 
-#menu li + li {
+/* #menu li {
     margin-inline-start: var(--gap);
-}
+} */
 
 #menu a {
     font-size: 12px;
@@ -102,7 +94,7 @@ body:not(.dark) #sun {
     flex-wrap: inherit;
 }
 
-.search-icon {
+/* .search-icon {
     vertical-align: middle;
     margin-top: 2px;
-}
+} */

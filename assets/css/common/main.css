@@ -7,14 +7,6 @@
     box-sizing: border-box; */
 }
 
-@media (max-width: 900px) {
-    .main {
-        padding-left: 30px;
-        padding-right: 30px;
-
-    }
-}
-
 .page-header h1 {
     font-size: 40px;
 }
