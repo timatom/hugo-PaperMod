@@ -43,8 +43,8 @@
     /* Create a border only for the top and bottom with opacity and 1.5px thickness */
     /* border-top: 1.5px solid rgba(0, 0, 0, 0.2); */
     /* border-bottom: 1.5px solid rgba(0, 0, 0, 0.2); */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid var(--border);
+    border-top: 1px solid var(--border);
     padding: 16px 0;
     /* margin: 16px 0; */
 }
@@ -84,7 +84,7 @@
     background: var(--entry);
     border-radius: var(--radius);
     transition: transform 0.1s;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
     transition: transform 0.1s, box-shadow 0.3s;
     flex: 0 0 48%;
     display: inline-block;
@@ -203,7 +203,7 @@
 .text-container {
     /* margin-left: 10px; */
     padding-left: 10px;
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid var(--border);
 }
 
 
@@ -219,3 +219,46 @@
     /* Styles for elements with class 'guides-grid' within the articles page */
     /* margin: 10px; */
 }
+
+#categories .categories-header {
+    width: 100%;
+}
+
+#articles-page #categories {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+#categories h2 {
+    margin-bottom: 30px;
+}
+
+/* #catgeories .article {
+    width: 45%;
+    height: 200px;
+    display: inline-block;
+} */
+
+#categories .posts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+
+  
+#categories .post-summary {
+    flex: 0 0 calc(50% - 10px);
+    /* margin-bottom: 20px; */
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 60px;
+    /* padding-right: var(--gap); */
+  }
+  
+#categories a {
+    color: var(--primary);
+    /* text-decoration: none; */
+  }
