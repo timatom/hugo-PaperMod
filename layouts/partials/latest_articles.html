@@ -1,0 +1,17 @@
+<div id="categories" class="posts-grid"> <!-- Start of .categories div -->
+    <header class="categories-header">
+        <h2>My latest articles: </h2> <!-- Fixed closing tag -->
+    </header>
+
+    {{ $featuredPages := first 6 .pages }}
+    {{ range $featuredPages }}
+        <article class="post-summary">
+            <header class="entry-header">
+                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            </header>
+            <div class="entry-content">
+                <p>{{ .Summary | truncate 150 }}</p>
+            </div>
+        </article>
+    {{ end }}
+</div> <!-- End of .categories div -->
