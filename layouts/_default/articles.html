@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+{{- $pages := where site.RegularPages "Type" "origins" }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
+
+<div id="articles-page">
+    <!-- <header class="guide-header">
+        <h1>Explore my articles.</h1>
+    </header> -->
+    <!-- Reference guides-grid here. -->
+    {{ partial "guides_grid.html" (dict "pages" $pages "context" . "isArticlesPage" true) }}
+</div>
+
+{{ end }}
