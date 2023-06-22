@@ -21,12 +21,15 @@
         </header>
         {{- if not ($page.Param "hideSummary") }} <!-- Removed 'true' argument -->
         <div class="entry-content">
-          <p>{{ $page.Summary | plainify | htmlUnescape }}{{ if $page.Truncated }}...{{ end }}</p>
+          <!-- <p>{{ $page.Summary | plainify | htmlUnescape }}{{ if $page.Truncated }}...{{ end }}</p> -->
+          <!-- rewrite paragraph tag with word limit -->
+          <p>{{ $page.Summary | plainify | htmlUnescape | truncate 100 }}</p>
         </div>
         {{- end }}
         {{- if not ($page.Param "hideMeta") }}
         <footer class="entry-footer">
-          {{- partial "post_meta.html" $page -}}
+          <!-- {{- partial "post_meta.html" $page -}} -->
+          <!-- <a class="read-more" href="{{ $page.Permalink }}">Read more <span>&#8594;</span></a> -->
         </footer>
         {{- end }}
         <a class="entry-link guide" aria-label="post link to {{ $page.Title | plainify }}" href="{{ $page.Permalink }}"></a>
