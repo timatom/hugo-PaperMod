@@ -1,40 +1,42 @@
 <div class="guides-grid"> <!-- Start of .guides-grid div -->
-    <header class="guide-header">
-      {{ if .isArticlesPage }}
-          <h1>This is the header for the articles page.</h1>
-          <p>This is the paragraph for the articles page.</p>
-      {{ else }}
-        <h1>Interested in my blog? Explore these guides. </h1> <!-- Fixed closing tag -->
-        <p>If you're new, <a href="">start here</a>.</p>
-      {{ end }}
+  {{ if .isArticlesPage }}
+  <header class="guide-header articles-page">
+    <h1>This is the header for the articles page.</h1>
+    <p>This is the paragraph for the articles page.</p>
+  </header>
+  {{ else }}
+  <header class="guide-header home-page">
+    <h1>Interested in my blog? Explore these guides. </h1> <!-- Fixed closing tag -->
+    <p>If you're new, <a href="">start here</a>.</p>
+  </header>
+  {{ end }}
+  {{- range $index, $page := .pages }}
+  <!-- Insert your HTML to display each page -->
+  <article class="{{ if eq (mod $index 2) 0 }}guide-entry left{{ else }}guide-entry right{{ end }}">
+    {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
+    {{- partial "cover.html" (dict "cxt" $page "IsHome" true "isHidden" $isHidden) }}
+    <header class="entry-header">
+      <h2>
+        {{- $page.Title }}
+        {{- if $page.Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+      </h2>
     </header>
-    {{- range $index, $page := .pages }}
-      <!-- Insert your HTML to display each page -->
-      <article class="{{ if eq (mod $index 2) 0 }}guide-entry left{{ else }}guide-entry right{{ end }}">
-        {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-        {{- partial "cover.html" (dict "cxt" $page "IsHome" true "isHidden" $isHidden) }}
-        <header class="entry-header">
-          <h2>
-            {{- $page.Title }}
-            {{- if $page.Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-          </h2>
-        </header>
-        {{- if not ($page.Param "hideSummary") }} <!-- Removed 'true' argument -->
-        <div class="entry-content">
-          <!-- <p>{{ $page.Summary | plainify | htmlUnescape }}{{ if $page.Truncated }}...{{ end }}</p> -->
-          <!-- rewrite paragraph tag with word limit -->
-          <p>{{ $page.Summary | plainify | htmlUnescape | truncate 100 }}</p>
-        </div>
-        {{- end }}
-        {{- if not ($page.Param "hideMeta") }}
-        <footer class="entry-footer">
-          <!-- {{- partial "post_meta.html" $page -}} -->
-          <!-- <a class="read-more" href="{{ $page.Permalink }}">Read more <span>&#8594;</span></a> -->
-        </footer>
-        {{- end }}
-        <a class="entry-link guide" aria-label="post link to {{ $page.Title | plainify }}" href="{{ $page.Permalink }}"></a>
-      </article>
+    {{- if not ($page.Param "hideSummary") }} <!-- Removed 'true' argument -->
+    <div class="entry-content">
+      <!-- <p>{{ $page.Summary | plainify | htmlUnescape }}{{ if $page.Truncated }}...{{ end }}</p> -->
+      <!-- rewrite paragraph tag with word limit -->
+      <p>{{ $page.Summary | plainify | htmlUnescape | truncate 100 }}</p>
+    </div>
     {{- end }}
-    <!-- Add a spacer div only for left side entries -->
-    <!-- <div class="spacer"></div> -->
+    {{- if not ($page.Param "hideMeta") }}
+    <footer class="entry-footer">
+      <!-- {{- partial "post_meta.html" $page -}} -->
+      <!-- <a class="read-more" href="{{ $page.Permalink }}">Read more <span>&#8594;</span></a> -->
+    </footer>
+    {{- end }}
+    <a class="entry-link guide" aria-label="post link to {{ $page.Title | plainify }}" href="{{ $page.Permalink }}"></a>
+  </article>
+  {{- end }}
+  <!-- Add a spacer div only for left side entries -->
+  <!-- <div class="spacer"></div> -->
 </div> <!-- End of .guides-grid div -->
