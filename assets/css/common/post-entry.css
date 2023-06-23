@@ -187,13 +187,23 @@
 }
 
 .read-more { 
-    /* float: right; */
-    font-size: 14px;
-    /* translate doen to the bottom */
     position: absolute;
     bottom: 10px;
 }
 
-.read-more:hover {
+.see-older {
+    /* give it top and bottom margin and make it 100% width */
+    margin: 30px 0;
+    width: 100%;
+
+}
+
+.read-more, .see-older {
+    font-size: 14px;
+    text-align: right;
+}
+
+.read-more:hover, .see-older:hover {
     color: var(--primary);
 }
+
