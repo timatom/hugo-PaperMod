@@ -6,12 +6,15 @@
 {{- $posts := where site.RegularPages "Type" "posts" }}
 {{- $posts = where $posts "Params.hiddenInHomeList" "!=" "true"  }}
 
-<div id="articles-page">
+<div  class="articles-page">
     <!-- Reference guides-grid here. -->
     {{ partial "guides_grid.html" (dict "pages" $origins "context" . "isArticlesPage" true) }}
 
     <!-- Reference to categories section. -->
     {{ partial "latest_articles.html" (dict "pages" $posts) }}
+
+    <!-- Bottom div -->
+    {{ partial "bottom_section.html" . }}
 
 </div>
 
