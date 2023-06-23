@@ -32,8 +32,8 @@
 
 .home-info .entry-content {
     -webkit-line-clamp: unset;
-    border-bottom: 1px solid var(--border);
-    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--tertiary);
+    border-top: 1px solid var(--tertiary);
     padding: 16px 0;
 }
 
@@ -58,7 +58,6 @@
 .guides-grid {
     margin-top: 60px;
     margin-bottom: 30px;
-    border-bottom: 1px solid var(--border);
 }
 
 .entry-header a {
@@ -84,7 +83,7 @@
 }
 
 .guide-entry {
-    border: 1px solid var(--border);
+    border: 1px solid var(--tertiary);
 }
 
 
@@ -164,7 +163,7 @@
 
 .text-container {
     padding-left: 10px;
-    border-left: 1px solid var(--border);
+    border-left: 1px solid var(--tertiary);
 }
 
 
@@ -179,8 +178,12 @@
     margin: 0 0 60px 0; 
 }
 
+.articles-page .guides-grid {
+    border-bottom: 1px solid var(--tertiary);
+}
+
 .post-summary-card {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--tertiary);
 }
 
 .read-more { 
