@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="posts-grid">
+    <header class="posts-header">
+    </header>
+    {{ $all_posts := (where .Site.RegularPages "Type" "posts") }}
+    {{ $paginator := .Paginate $all_posts }}
+    {{ range $paginator.Pages }}
+        <article class="post-summary-card">
+            <header class="entry-header">
+                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            </header>
+            <div class="entry-content">
+                <p>{{ .Summary | truncate 100 }}</p>
+            </div>
+            <footer class="entry-footer">
+                <a class="read-more" href="{{ .Permalink }}">Read more <span>&#8594;</span></a>
+            </footer>
+        </article>
+    {{ end }}
+    {{ if .Paginator.HasPrev }}
+    <a class="see-newer" href="{{ .Paginator.Prev.URL }}">See newer articles <span>&#8592;</span></a>
+    {{ end }}
+    {{ if .Paginator.HasNext }}
+    <a class="see-older" href="{{ .Paginator.Next.URL }}">See older articles <span>&#8594;</span></a>
+    {{ end }}
+</div>
+{{ end }}
