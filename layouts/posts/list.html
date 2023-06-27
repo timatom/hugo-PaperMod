@@ -18,10 +18,10 @@
         </article>
     {{ end }}
     {{ if .Paginator.HasPrev }}
-    <a class="see-newer" href="{{ .Paginator.Prev.URL }}">See newer articles <span>&#8592;</span></a>
+    <a class="left-link" href="{{ .Paginator.Prev.URL }}"><span>&#8592;</span> See newer articles</a>
     {{ end }}
     {{ if .Paginator.HasNext }}
-    <a class="see-older" href="{{ .Paginator.Next.URL }}">See older articles <span>&#8594;</span></a>
+    <a class="right-link" href="{{ .Paginator.Next.URL }}">See older articles <span>&#8594;</span></a>
     {{ end }}
 </div>
 {{ end }}
