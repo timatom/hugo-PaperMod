@@ -15,12 +15,19 @@
     <div class="column">
       <h2>Explore by category</h2>
       <!-- Add your categories and links here -->
-      <ul>
+      <!-- <ul>
         {{ range .Site.Params.starterCategories }}
           <li>
             <p>
               <a href="{{ .url }}">{{ .title }}</a>
             </p>
+          </li>
+        {{ end }}
+      </ul> -->
+      <ul>
+        {{ range $name, $pages := .Site.Taxonomies.topics }}
+          <li>
+            <a href="{{ "/topics/" | relLangURL }}{{ $name }}">{{ $name }}</a>
           </li>
         {{ end }}
       </ul>
