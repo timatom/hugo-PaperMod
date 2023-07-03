@@ -27,7 +27,8 @@
       <ul>
         {{ range $name, $pages := .Site.Taxonomies.topics }}
           <li>
-            <a href="{{ "/topics/" | relLangURL }}{{ $name }}">{{ $name }}</a>
+            <!-- <a href="{{ "/topics/" | relLangURL }}{{ $name }}">{{ $name }}</a> -->
+            <a href="{{ "/topics/" | relLangURL }}{{ $name }}">{{ $name | humanize | title }}</a>
           </li>
         {{ end }}
       </ul>
