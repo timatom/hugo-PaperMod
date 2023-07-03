@@ -14,7 +14,9 @@
     {{ partial "latest_articles.html" (dict "pages" $posts) }}
 
     <!-- Reference to see more articles. -->
-    <a class="right-link" href="/posts/">See more articles <span>&#8594;</span></a>
+    <div class="see-more">
+        <a href="/posts/">See more articles <span>&#8594;</span></a>
+    </div>
 
     <!-- Bottom div -->
     {{ partial "bottom_section.html" . }}

@@ -69,13 +69,18 @@
     background: var(--entry);
     border-radius: var(--radius);
     flex: 0 0 48%; /* 0 for top and bottom, 48% for left and right */
-    height: 200px;
-    margin-bottom: 30px; 
+    /* height: 200px; */
+    margin: 0 0 30px 0;
+    /* margin-bottom: 30px;  */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: var(--gap);
+    padding: var(--gap) var(--gap) var(--gap) 0; 
     background: none;
+}
+
+.guide-entry {
+    padding: 48px 24px 48px 24px;
 }
 
 .posts-header {
@@ -110,7 +115,6 @@
 
 .entry-content {
     color: var(--secondary);
-    /* font-size: 14px; */
     line-height: 1.6;
     overflow: hidden;
     display: -webkit-box;
@@ -183,6 +187,8 @@
 }
 
 .post-summary-card {
+    position: relative;
     border-bottom: 1px solid var(--tertiary);
 }
+
 
