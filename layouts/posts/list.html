@@ -3,6 +3,7 @@
     <header class="posts-header">
     </header>
     {{ $all_posts := (where .Site.RegularPages "Type" "posts") }}
+    {{ $all_posts = after 6 $all_posts }} <!-- skip the first 6 posts -->
     {{ $paginator := .Paginate $all_posts }}
     {{ range $paginator.Pages }}
         <article class="post-summary-card">
