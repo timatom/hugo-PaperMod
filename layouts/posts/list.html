@@ -18,11 +18,18 @@
             </footer>
         </article>
     {{ end }}
-    {{ if .Paginator.HasPrev }}
-    <a class="left-link" href="{{ .Paginator.Prev.URL }}"><span>&#8592;</span> See newer articles</a>
-    {{ end }}
-    {{ if .Paginator.HasNext }}
-    <a class="right-link" href="{{ .Paginator.Next.URL }}">See older articles <span>&#8594;</span></a>
-    {{ end }}
+
+    <div class="pagination-links"> 
+        {{ if .Paginator.HasPrev }}
+        <div class="pagination-prev">
+            <a href="{{ .Paginator.Prev.URL }}"><span>&#8592;</span> See newer articles</a>
+        </div>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+        <div class="pagination-next">
+            <a href="{{ .Paginator.Next.URL }}">See older articles <span>&#8594;</span></a>
+        </div>
+        {{ end }}
+    </div>
 </div>
 {{ end }}
