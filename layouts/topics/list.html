@@ -1,12 +1,12 @@
 {{ define "main" }}
 <div class="categories-grid">
     <header class="categories-header">
-        <h1>{{ .Title }}</h1> 
+        <h1>{{ .Title | humanize | title }}</h1>
     </header>
     {{ $all_posts := .Pages }}
     {{ $paginator := .Paginate $all_posts }}
     {{ range $paginator.Pages }}
-        <article class="post-summary-card" style="flex: 0 0 100%">
+        <article class="post-summary-card">
             <header class="entry-header">
                 <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
             </header>
@@ -18,18 +18,18 @@
             </footer>
         </article>
     {{ end }}
-<!-- 
     <div class="pagination-links"> 
         {{ if .Paginator.HasPrev }}
         <div class="pagination-prev">
-            <a href="{{ .Paginator.Prev.URL }}"><span>&#8592;</span> See newer articles</a>
+            <a href="{{ .Paginator.Prev.URL }}"><span>&#8592;</span> Previous</a>
         </div>
         {{ end }}
         {{ if .Paginator.HasNext }}
         <div class="pagination-next">
-            <a href="{{ .Paginator.Next.URL }}">See older articles <span>&#8594;</span></a>
+            <a href="{{ .Paginator.Next.URL }}">Next <span>&#8594;</span></a>
         </div>
         {{ end }}
-    </div> -->
+    </div>
+
 </div>
 {{ end }}
