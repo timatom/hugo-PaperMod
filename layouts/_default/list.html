@@ -54,6 +54,13 @@
 {{- $term := .Data.Term }}
 {{- range $index, $page := $paginator.Pages }}
 
+<!-- {{- if .IsHome }}
+<header>
+  <h2>Choose a path</h2>
+  <p>Dive deep into the following comprehensive articles. If this is your first time, <a href="" style="font-weight: bold;">start here</a>.</p>
+</header>
+{{- end }} -->
+
 {{- $class := "post-entry" }}
 
 {{- $user_preferred := or site.Params.disableSpecial1stPost site.Params.homeInfoParams }}
