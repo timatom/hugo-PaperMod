@@ -1,42 +1,58 @@
 <div class="guides-grid"> <!-- Start of .guides-grid div -->
-  {{ if .isArticlesPage }}
-  <header class="guide-header articles-page">
-    <h1>Explore my guide and articles.</h1>
+  <!-- {{ if .isArticlesPage }} -->
+  <!-- <header class="guide-header articles-page"> -->
+    <!-- <h1>This is the header for the articles page.</h1> -->
     <!-- <p>This is the paragraph for the articles page.</p> -->
-  </header>
-  {{ else }}
-  <header class="guide-header home-page">
-    <h1>Check out my guide here.</h1> <!-- Fixed closing tag -->
-    <p>If you're new, <a href="">start here</a>.</p>
-  </header>
-  {{ end }}
-  {{- range $index, $page := .pages }}
-  <!-- Insert your HTML to display each page -->
-  <article class="{{ if eq (mod $index 2) 0 }}guide-entry left{{ else }}guide-entry right{{ end }}">
-    {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
-    {{- partial "cover.html" (dict "cxt" $page "IsHome" true "isHidden" $isHidden) }}
-    <header class="entry-header">
-      <h2>
-        {{- $page.Title }}
-        {{- if $page.Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
-      </h2>
-    </header>
-    {{- if not ($page.Param "hideSummary") }} <!-- Removed 'true' argument -->
-    <div class="entry-content">
-      <!-- <p>{{ $page.Summary | plainify | htmlUnescape }}{{ if $page.Truncated }}...{{ end }}</p> -->
-      <!-- rewrite paragraph tag with word limit -->
-      <p>{{ $page.Summary | plainify | htmlUnescape | truncate 100 }}</p>
+  <!-- </header> -->
+  <!-- {{ else }} -->
+  <!-- <header class="guide-header home-page"> -->
+  <!-- <header class="guide-header"> -->
+    <!-- <h1>Interested in my blog? Explore these guides. </h1> Fixed closing tag -->
+    <!-- <p>If you're new, <a href="">start here</a>.</p> -->
+  <!-- </header> -->
+  <!-- {{ end }} -->
+
+  <!-- Check if the number of pages is even -->
+  {{ $isEven := (eq (mod (len .pages) 2) 0) }}
+
+  <!-- Apply different CSS class for the header based on the number of guide entries -->
+  {{ if $isEven }}
+    <div class="guide-header-even">
+      <h1>Interested in my blog? Explore these guides. </h1> <!-- Fixed closing tag -->
+      <p>If you're new, <a href="">start here</a>.</p>
     </div>
-    {{- end }}
-    {{- if not ($page.Param "hideMeta") }}
-    <footer class="entry-footer">
-      <!-- {{- partial "post_meta.html" $page -}} -->
-      <!-- <a class="read-more" href="{{ $page.Permalink }}">Read more <span>&#8594;</span></a> -->
-    </footer>
-    {{- end }}
-    <a class="entry-link guide" aria-label="post link to {{ $page.Title | plainify }}" href="{{ $page.Permalink }}"></a>
-  </article>
+  {{- else }}
+    <div class="guide-header-odd">
+      <h1>Interested in my blog? Explore these guides. </h1> <!-- Fixed closing tag -->
+      <p>If you're new, <a href="">start here</a>.</p>
+    </div>
   {{- end }}
-  <!-- Add a spacer div only for left side entries -->
-  <!-- <div class="spacer"></div> -->
+
+  {{- range $index, $page := .pages }}
+    <!-- Insert your HTML to display each page -->
+    <article class="{{ if eq (mod $index 2) 0 }}guide-entry left{{ else }}guide-entry right{{ end }}">
+      {{- $isHidden := (site.Params.cover.hidden | default site.Params.cover.hiddenInList) }}
+      {{- partial "cover.html" (dict "cxt" $page "IsHome" true "isHidden" $isHidden) }}
+      <header class="entry-header">
+        <h2>
+          {{- $page.Title }}
+          {{- if $page.Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+        </h2>
+      </header>
+      {{- if not ($page.Param "hideSummary") }} <!-- Removed 'true' argument -->
+      <div class="entry-content">
+        <!-- <p>{{ $page.Summary | plainify | htmlUnescape }}{{ if $page.Truncated }}...{{ end }}</p> -->
+        <!-- rewrite paragraph tag with word limit -->
+        <p>{{ $page.Summary | plainify | htmlUnescape | truncate 100 }}</p>
+      </div>
+      {{- end }}
+      {{- if not ($page.Param "hideMeta") }}
+      <footer class="entry-footer">
+        <!-- {{- partial "post_meta.html" $page -}} -->
+        <!-- <a class="read-more" href="{{ $page.Permalink }}">Read more <span>&#8594;</span></a> -->
+      </footer>
+      {{- end }}
+      <a class="entry-link guide" aria-label="post link to {{ $page.Title | plainify }}" href="{{ $page.Permalink }}"></a>
+    </article>
+  {{- end }}
 </div> <!-- End of .guides-grid div -->
