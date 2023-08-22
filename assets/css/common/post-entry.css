@@ -181,6 +181,10 @@
     margin: 0 0 30px 0;
 }
 
+.guide-header-odd {
+    margin: 0 0 30px 0;
+}
+
 
 .articles-page .guides-grid {
     border-bottom: 1px solid var(--tertiary);
