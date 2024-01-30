@@ -12,8 +12,8 @@
         {{ end }}
       </ul>
     </div>
-    <div class="column">
-      <h2>Explore by category</h2>
+    <!-- <div class="column"> -->
+      <!-- <h2>Explore by category</h2> -->
       <!-- Add your categories and links here -->
       <!-- <ul>
         {{ range .Site.Params.starterCategories }}
@@ -24,13 +24,13 @@
           </li>
         {{ end }}
       </ul> -->
-      <ul>
-        {{ range $name, $pages := .Site.Taxonomies.topics }}
-          <li>
+      <!-- <ul> -->
+        <!-- {{ range $name, $pages := .Site.Taxonomies.topics }} -->
+          <!-- <li> -->
             <!-- <a href="{{ "/topics/" | relLangURL }}{{ $name }}">{{ $name }}</a> -->
-            <a href="{{ "/topics/" | relLangURL }}{{ $name }}">{{ $name | humanize | title }}</a>
-          </li>
-        {{ end }}
-      </ul>
-    </div>
+            <!-- <a href="{{ "/topics/" | relLangURL }}{{ $name }}">{{ $name | humanize | title }}</a> -->
+          <!-- </li> -->
+        <!-- {{ end }} -->
+      <!-- </ul> -->
+    <!-- </div> -->
   </div>
