@@ -341,7 +341,7 @@
     margin-inline-end: 12px;
 }
 
-h1:hover .anchor,
+/* h1:hover .anchor,
 h2:hover .anchor,
 h3:hover .anchor,
 h4:hover .anchor,
@@ -352,7 +352,8 @@ h6:hover .anchor {
     margin-inline-start: 8px;
     font-weight: 500;
     user-select: none;
-}
+} */
+
 
 .paginav {
     margin: 10px 0;
