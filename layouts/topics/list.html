@@ -3,8 +3,8 @@
     <header class="categories-header">
         <h1>{{ .Title | humanize | title }}</h1>
     </header>
-    {{ $all_posts := .Pages }}
-    {{ $paginator := .Paginate $all_posts }}
+    {{ $all_articles := .Pages }}
+    {{ $paginator := .Paginate $all_articles }}
     {{ range $paginator.Pages }}
         <article class="post-summary-card">
             <header class="entry-header">

@@ -50,7 +50,7 @@
     transition: transform 0.1s, box-shadow 0.3s;
 } */
 
-.guides-grid, .posts-grid {
+.guides-grid, .articles-grid {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -70,7 +70,7 @@
     color: var(--primary);
 }
 
-.guide-entry, .post-summary-card, .guide-header, .posts-header {
+.guide-entry, .post-summary-card, .guide-header, .articles-header {
     position: relative;
     background: var(--entry);
     border-radius: var(--radius);
@@ -89,7 +89,7 @@
     padding: 48px 24px 48px 24px;
 }
 
-.posts-header {
+.articles-header {
     margin-bottom: 0;
 }
 
@@ -173,7 +173,7 @@
 /* } */
 
 
-.posts-header, .articles-page .guide-header {
+.articles-header, .articles-page .guide-header {
     flex: 0 0 100%;
     height: 100px;
     padding-left: 0;

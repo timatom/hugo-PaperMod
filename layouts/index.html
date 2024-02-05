@@ -42,7 +42,7 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
-<!-- Comprehensive guide posts -->
+<!-- Comprehensive guide articles -->
 {{- if .IsHome }}
 {{- $pages := where site.RegularPages "Type" "themes" }}
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}

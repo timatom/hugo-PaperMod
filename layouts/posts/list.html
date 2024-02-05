@@ -1,10 +1,10 @@
 {{ define "main" }}
-<div class="posts-grid">
-    <header class="posts-header">
+<div class="articles-grid">
+    <header class="articles-header">
     </header>
-    {{ $all_posts := (where .Site.RegularPages "Type" "posts") }}
-    {{ $all_posts = after 6 $all_posts }} <!-- skip the first 6 posts -->
-    {{ $paginator := .Paginate $all_posts }}
+    {{ $all_articles := (where .Site.RegularPages "Type" "articles") }}
+    {{ $all_articles = after 6 $all_articles }} <!-- skip the first 6 articles -->
+    {{ $paginator := .Paginate $all_articles }}
     {{ range $paginator.Pages }}
         <article class="post-summary-card">
             <header class="entry-header">

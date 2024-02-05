@@ -32,9 +32,9 @@
     -   [Home-Info Mode.](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#home-info-mode)
     -   [Profile Mode.](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode)
 -   Table of Content Generation (newer implementation).
--   Archive of posts.
+-   Archive of articles.
 -   Social Icons (home-info and profile-mode)
--   Social-Media Share buttons on posts.
+-   Social-Media Share buttons on articles.
 -   Menu location indicator.
 -   Multilingual support. (with language selector)
 -   Taxonomies
@@ -43,7 +43,7 @@
 -   SEO Friendly.
 -   Multiple Author support.
 -   Search Page with Fuse.js
--   Other Posts suggestion below a post
+-   Other articles suggestion below a post
 -   Breadcrumb Navigation
 -   Code Block Copy buttons
 -   No webpack, nodejs and other dependencies are required to edit the theme.

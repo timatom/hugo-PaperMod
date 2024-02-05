@@ -3,19 +3,19 @@
 {{- $themes := where site.RegularPages "Type" "themes" }}
 {{- $themes = where $themes "Params.hiddenInHomeList" "!=" "true"  }}
 
-{{- $posts := where site.RegularPages "Type" "posts" }}
-{{- $posts = where $posts "Params.hiddenInHomeList" "!=" "true"  }}
+{{- $articles := where site.RegularPages "Type" "articles" }}
+{{- $articles = where $articles "Params.hiddenInHomeList" "!=" "true"  }}
 
 <div  class="articles-page">
     <!-- Reference guides-grid here. -->
     {{ partial "guides_grid.html" (dict "pages" $themes "context" . "isArticlesPage" true) }}
 
     <!-- Reference to list.html section. -->
-    {{ partial "latest_articles.html" (dict "pages" $posts) }}
+    {{ partial "latest_articles.html" (dict "pages" $articles) }}
 
     <!-- Reference to see more articles. -->
     <div class="see-more">
-        <a href="/posts/">See more articles <span>&#8594;</span></a>
+        <a href="/articles/">See more articles <span>&#8594;</span></a>
     </div>
 
     <!-- Bottom div -->
