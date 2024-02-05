@@ -44,7 +44,7 @@
 
 <!-- Comprehensive guide posts -->
 {{- if .IsHome }}
-{{- $pages := where site.RegularPages "Type" "origins" }}
+{{- $pages := where site.RegularPages "Type" "themes" }}
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
 
 <!-- Reference guides-grid here. -->

@@ -1,14 +1,14 @@
 {{ define "main" }}
 
-{{- $origins := where site.RegularPages "Type" "origins" }}
-{{- $origins = where $origins "Params.hiddenInHomeList" "!=" "true"  }}
+{{- $themes := where site.RegularPages "Type" "themes" }}
+{{- $themes = where $themes "Params.hiddenInHomeList" "!=" "true"  }}
 
 {{- $posts := where site.RegularPages "Type" "posts" }}
 {{- $posts = where $posts "Params.hiddenInHomeList" "!=" "true"  }}
 
 <div  class="articles-page">
     <!-- Reference guides-grid here. -->
-    {{ partial "guides_grid.html" (dict "pages" $origins "context" . "isArticlesPage" true) }}
+    {{ partial "guides_grid.html" (dict "pages" $themes "context" . "isArticlesPage" true) }}
 
     <!-- Reference to list.html section. -->
     {{ partial "latest_articles.html" (dict "pages" $posts) }}
