@@ -1,13 +1,16 @@
 {{ define "main" }}
 
 <div class="newsletter-page">
-    <h1>{{ .Title }}</h1>
-    <p>{{ .Content }}</p>
-    <br>
+    <!-- <div class="subscribe-form"> -->
 
-    <!-- Subscription form -->
-    {{ partial "subscription_form.html" . }}
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Content }}</p>
+        <br>
 
+        <!-- Subscription form -->
+        <div class="subscribe-form">
+            {{ partial "subscription_form.html" . }}
+        </div>
 </div>
 
 {{ end }}
