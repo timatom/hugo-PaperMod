@@ -20,6 +20,9 @@
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+
+    <script src="/js/logo-interactive.js"></script>
+
 </body>
 
 </html>
