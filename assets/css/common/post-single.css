@@ -137,7 +137,7 @@
 .post-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
     min-width: 80px;
     padding: 12px 8px;
-    line-height: 1.5;
+    line-height: 1.9em;
     border-bottom: 1px solid var(--border);
 }
 
@@ -194,7 +194,7 @@
     margin: auto 4px;
     padding: 4px 6px;
     font-size: 0.78em;
-    line-height: 1.5;
+    line-height: 1.6em;
     background: var(--code-bg);
     border-radius: 2px;
 }

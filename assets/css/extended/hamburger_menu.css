@@ -40,7 +40,7 @@
         background: var(--code-bg);
         /* border-radius: var(--radius); */
         border: 2px solid var(--tertiary);
-        line-height: 2.5;
+        line-height: 2.5em;
         margin: calc(var(--header-height) - var(--gap)) var(--gap);
         display: block;
     }
