@@ -3,9 +3,14 @@
 <div class="newsletter-page">
     <!-- <div class="subscribe-form"> -->
 
-        <h1>{{ .Title }}</h1>
-        <p>{{ .Content }}</p>
-        <br>
+        <header class="post-header">
+            <h1>{{ .Title }}</h1>
+        </header>
+
+        <div class="post-content">
+            <p>{{ .Content }}</p>
+        </div>
+        <!-- <br> -->
 
         <!-- Subscription form -->
         <div class="subscribe-form">
