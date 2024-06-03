@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="notes-container">
+  <!-- Display the title "Note" -->
+  <h1>Notes</h1>
+
+  <!-- Display titles with bullet points -->
+  <ul class="note-list">
+    <!-- Loop through the content pages -->
+    {{ range .Pages }}
+    <li class="note-item">
+      <!-- Wrap the title with an anchor tag linking to the individual note's page -->
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}
