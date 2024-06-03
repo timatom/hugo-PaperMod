@@ -6,15 +6,15 @@
 <!-- {{- $articles := where site.RegularPages "Type" "articles" }}
 {{- $articles = where $articles "Params.hiddenInHomeList" "!=" "true"  }} -->
 
-<div class="highlights-container">
+<div class="notes-container">
     <!-- Display the title "Articles" -->
     <h1>Articles</h1>
 
     <!-- Display titles with bullet points -->
-    <ul class="highlight-list">
+    <ul class="note-list">
         <!-- Loop through the content pages -->
         {{ range .Pages }}
-        <li class="highlight-item">
+        <li class="note-item">
             <!-- Wrap the title with an anchor tag linking to the individual article's page -->
             <a href="{{ .Permalink }}">{{ .Title }}</a>
         </li>
