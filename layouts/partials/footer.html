@@ -121,7 +121,7 @@
             selection.removeRange(range);
         });
 
-        if (container.classList.contains("highlight")) {
+        if (container.classList.contains("note")) {
             container.appendChild(copybutton);
         } else if (container.parentNode.firstChild == container) {
             // td containing LineNos
@@ -129,7 +129,7 @@
             // table containing LineNos and code
             codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
         } else {
-            // code blocks not having highlight as parent class
+            // code blocks not having note as parent class
             codeblock.parentNode.appendChild(copybutton);
         }
     });
