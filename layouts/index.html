@@ -45,7 +45,7 @@
 <!-- Comprehensive guide articles -->
 {{- if .IsHome }}
 {{- $pages := where site.RegularPages "Type" "themes" }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
 
 <!-- Reference guides-grid here. -->
 <!-- {{ partial "guides_grid.html" (dict "pages" $pages "context" .) }} -->
@@ -56,6 +56,36 @@
 <!-- Starter articles and categories section. -->
 <!-- {{ partial "starter_section.html" . }} -->
 
+<!-- Display featured article -->
+<div class="articles-container">
+    <h1>Featured Article</h1>
+  <ul class="note-list">
+  {{ $featured := first 1 (where .Site.RegularPages "Params.featured" true) }}
+  {{ if $featured }}
+    {{ $featuredPage := index $featured 0 }} <!-- Get the first page from the slice -->
+      <li>
+        <a href="{{ $featuredPage.Permalink }}">{{ $featuredPage.Title }}</a>
+      </li>
+    </ul>
+  {{ end }}
+</div>
+
+<!-- Display notes -->
+<div class="notes-container">
+  <!-- Display the title "Note" -->
+  <h1>Featured Notes</h1>
+  <!-- Display titles with bullet points -->
+  <ul class="note-list">
+    <!-- Loop through the content pages -->
+    {{ range first 4 (sort .Site.RegularPages "Date" "desc") }}
+    <li class="note-item">
+      <!-- Wrap the title with an anchor tag linking to the individual note's page -->
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</div>
+
 
 <!-- Bottom div -->
 {{ partial "bottom_section.html" . }}
@@ -64,4 +94,3 @@
 {{- end }}{{/* end profileMode */}}
 
 {{- end }}{{- /* end main */ -}}
-
