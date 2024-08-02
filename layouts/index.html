@@ -77,10 +77,10 @@
   <!-- Display titles with bullet points -->
   <ul class="note-list">
     <!-- Loop through the content pages -->
-    {{ range first 4 (sort .Site.RegularPages "Date" "desc") }}
+    {{ range .Site.Params.featuredNotes }}    
     <li class="note-item">
       <!-- Wrap the title with an anchor tag linking to the individual note's page -->
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <a href="{{ .url }}">{{ .title }}</a>    
     </li>
     {{ end }}
   </ul>
