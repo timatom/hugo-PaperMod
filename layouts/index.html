@@ -57,18 +57,18 @@
 <!-- {{ partial "starter_section.html" . }} -->
 
 <!-- Display featured article -->
-<div class="articles-container">
+<!-- <div class="articles-container">
     <h1>Featured Article</h1>
   <ul class="note-list">
   {{ $featured := first 1 (where .Site.RegularPages "Params.featured" true) }}
   {{ if $featured }}
     {{ $featuredPage := index $featured 0 }} <!-- Get the first page from the slice -->
-      <li>
+      <!-- <li>
         <a href="{{ $featuredPage.Permalink }}">{{ $featuredPage.Title }}</a>
       </li>
     </ul>
   {{ end }}
-</div>
+</div> --> 
 
 <!-- Display notes -->
 <div class="notes-container">
