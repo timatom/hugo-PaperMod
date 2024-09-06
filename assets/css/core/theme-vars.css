@@ -7,19 +7,21 @@
     --nav-margin: 30px;
     --footer-height: 60px;
     --radius: 0;
-    --theme: rgb(255, 255, 255);
+    /* --theme: rgb(255, 255, 255); */
+    --theme: #f7f7f7;
     --entry: rgb(255, 255, 255);
     /* Add box shadow to post entry card each time mouse hovers */
     --entry-hover-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
     /* --primary: rgb(30, 30, 30); */
-    --primary: black;
+    --primary: #333333;
 
     --secondary: rgb(108, 108, 108);
     --tertiary: rgb(214, 214, 214);
     --content: rgb(31, 31, 31);
     --hljs-bg: rgb(28, 29, 33);
     /* --code-bg: rgb(245, 245, 245); */
-    --code-bg: white;
+    /* --code-bg: white; */
+    --code-bg: #f7f7f7;
     --sub-border: rgba(155, 156, 157);
     /* --icon-url: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 256 256' width='24px' height='24px' fill-rule='nonzero'%3E%3Cg fill='%23000000' fill-rule='nonzero' stroke='none' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter' stroke-miterlimit='10' stroke-dasharray='' stroke-dashoffset='0' font-family='none' font-weight='none' font-size='none' text-anchor='none' style='mix-blend-mode: normal'%3E%3Cg transform='scale(10.66667 10.66667)'%3E%3Cpath d='M13 1l-7 13h6v9l7 -13h-6zM3.70703 3.29297l-1.41406 1.41406l3 3l1.41406 -1.41406zM20.29297 3.29297l-3 3l1.41406 1.41406l3 -3zM5.29297 16.29297l-3 3l1.41406 1.41406l3 -3zM18.70703 16.29297l-1.41406 1.41406l3 3l1.41406 -1.41406z'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); */
     --text-color: black;
